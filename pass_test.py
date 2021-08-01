@@ -10,3 +10,19 @@ class TestUser (unittest.TestCase):
         """
         self.new_user = User("Malobz", "kjdi") #create user object
         
+    def test_init(self):
+        """
+        test_init test case to test if the object is initialized properly
+        """
+        self.assertEqual(self.new_user.username, "Malobz")
+        self.assertEqual(self.new_user.password, "kjdi")
+        
+    def test_save_user(self):
+        """
+        test if user object is updated in user list
+        """
+        
+if __name__ == '__main__':
+    unittest.main()
+        
+        
