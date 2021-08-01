@@ -26,3 +26,7 @@ class User:
         delete saved user from user list
         """
         User.user_list.remove(self)
+        
+    
+   
+    
