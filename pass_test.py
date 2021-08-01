@@ -1,5 +1,6 @@
 import unittest
 from pass_locker import User
+from pass_locker import Credentials
 class TestUser (unittest.TestCase):
     """
     Test class that defines test cases for the User class behaviours.
@@ -51,7 +52,59 @@ class TestUser (unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
         
     
+class TestCredentials (unittest.TestCase):
+    """
+    Test class that defines test cases for the Credentials class behaviours.
+    """
+    def setUp(self):
+        """
+        Set up method to run before each test cases.
+        """
+        self.new_credentials = Credentials("Instagram", "Maloba", "scabz123") #create credentials object
         
+    def test_init(self):
+        """
+        test_init test case to test if the object is initialized properly
+        """
+        self.assertEqual(self.new_credentials.account, "Instagram")
+        self.assertEqual(self.new_credentials.username, "Maloba")
+        self.assertEqual(self.new_credentials.password, "scabz123")
+        
+    def test_save_user(self):
+        """
+        test if user object is updated in user list
+        """
+        self.new_credentials.save_credentials() #save the new user
+        self.assertEqual(len(Credentials.credentials_list),1)
+    
+    
+    def tearDown(self):
+        """
+        clean up after each test case has run.
+        """
+        Credentials.credentials_list = []
+    def test_save_multiple_credentials(self):
+        """
+        test to check if we can save multiple credentials
+        """
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Twitter", "Moreen", "qwert") #new user
+        test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
+    
+        
+    def test_delete_credentials(self):
+        """
+        test to see if you can remove credentials from the credentials_list
+        """
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Facebook","Eugene","qaz")
+        test_credentials.save_credentials()
+        self.new_credentials.delete_credentials() #deleting user
+        self.assertEqual(len(Credentials.credentials_list),1)
+        
+    
+                
         
 if __name__ == '__main__':
     unittest.main()
