@@ -23,13 +23,22 @@ class TestUser (unittest.TestCase):
         """
         self.new_user.save_user() #save the new user
         self.assertEqual(len(User.user_list),1)
+    
+    def test_save_multiple_user(self):
+        """
+        test to check if we can save multiple user
+        """
+        self.new_user.save_user()
+        test_user = User("Mercy", "qwerty") #new user
+        test_user.save_user()
+        self.assertEqual(len(User.user_list),2)
         
     def test_delete_user(self):
         """
         test to see if you can remove user from the user_list
         """
         self.new_user.save_user()
-        test_user = User("Malobz","kjdi")
+        test_user = User("Mercy","quo")
         test_user.save_user()
         self.new_user.delete_user() #deleting user
         self.assertEqual(len(User.user_list),1)
