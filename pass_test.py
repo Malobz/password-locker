@@ -21,6 +21,8 @@ class TestUser (unittest.TestCase):
         """
         test if user object is updated in user list
         """
+        self.new_user.save_user() #save the new user
+        self.assertEqual(len(User.user_list),1)
         
 if __name__ == '__main__':
     unittest.main()
