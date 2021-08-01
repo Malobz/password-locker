@@ -50,6 +50,8 @@ class TestUser (unittest.TestCase):
         self.new_user.delete_user() #deleting user
         self.assertEqual(len(User.user_list),1)
         
+    
+        
         
 if __name__ == '__main__':
     unittest.main()
