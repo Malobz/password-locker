@@ -57,5 +57,26 @@ class Credentials:
         delete saved credentials from credentials list
         """
         Credentials.credentials_list.remove(self)
-   
     
+    @classmethod
+    def find_by_account(cls, accName):
+        """
+        Method that takes in account and return credentials
+        """
+        for credentials in cls.credentials_list:
+            if credentials.account == accName:
+                return credentials
+                
+    @classmethod
+    def credentials_exist(cls, accName):
+        '''
+        Method that checks if credentials exists from the credential list.
+        
+        Returns :
+            Boolean: True or false depending if the credentials exists
+        '''
+        for credentials in cls.credentials_list:
+            if credentials.account == accName:
+                    return True
+
+        return False
