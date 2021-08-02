@@ -26,4 +26,23 @@ def display_user():
     Function that returns all the saved users
     '''
     return User.display_user()
+
+def create_credentials(acc, userName, passWord):
+    '''
+    Function to create new credentials
+    '''
+    new_credentials = Credentials(acc, userName, passWord)
+    return new_credentials
+
+def save_credentials(credentia):
+    '''
+    Function to save contact
+    '''
+    credentia.save_contact()
+    
+def del_credentials(credentia):
+    '''
+    Function to delete credentials
+    '''
+    credentia.delete_credentials()
     
