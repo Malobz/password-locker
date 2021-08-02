@@ -21,3 +21,9 @@ def del_user(userr):
     '''
     userr.delete_user()
     
+def display_user():
+    '''
+    Function that returns all the saved users
+    '''
+    return User.display_user()
+    
