@@ -27,6 +27,13 @@ class User:
         """
         User.user_list.remove(self)
         
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns the user list
+        '''
+        return cls.user_list
+        
 class Credentials:
     """
     Generates new instances of class Credentials
@@ -80,3 +87,10 @@ class Credentials:
                     return True
 
         return False
+    
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.credentials_list
