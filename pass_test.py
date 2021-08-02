@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from pass_locker import User
 from pass_locker import Credentials
 class TestUser (unittest.TestCase):
@@ -136,12 +137,25 @@ class TestCredentials (unittest.TestCase):
 
         self.assertTrue(credentials_exists)
         
+    # def test_copy_password(self):
+    #     '''
+    #     Test to confirm that we are copying the email address from a found contact
+    #     '''
+
+    #     self.new_credentials.save_credentials()
+    #     Credentials.copy_password("Twitter")
+
+    #     self.assertEqual(self.new_credentials.password,pyperclip.paste())
+
+        
     def test_display_all_credentials(self):
         '''
         method that returns a list of all credentials saved
         '''
 
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+        
+    
         
     
     
